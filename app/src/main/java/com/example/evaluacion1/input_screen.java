@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 
 public class input_screen extends AppCompatActivity {
     //Creamos las variables que trabajarán con los id de esta pantalla
@@ -16,8 +15,6 @@ public class input_screen extends AppCompatActivity {
     EditText hectarea;
     Button bttnCalcular;
     Button bttnLimpiar;
-
-    double resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +38,11 @@ public class input_screen extends AppCompatActivity {
                 double num1 = Double.parseDouble(nums1);
                 double num2 = Double.parseDouble(nums2);
                 double resultado = num1 * num2;
+
                 Intent intent = new Intent(
                         getApplicationContext(), output_screen.class
                 );
-                intent.putExtra("resultado", texto.getText().toString());
+                intent.putExtra("resultado", resultado);
                 startActivity(intent);
             }
         });
